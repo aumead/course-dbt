@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_postgres__addresses
+    description: customer addresses information, inclusive of address, state, zipcode, and country 
+
+  - name: stg_postgres__events
+    description: customer information about interaction with our platform, inclusive of sessions, the types of events, etc. 
+  
+  - name: stg_postgres__orders
+    description: information about customer orders, inclusive of shipping costs, order totals, delivery service, etc.
+
+  - name: stg_postgres__order_items
+    description: order tracker
+  
+  - name: stg_postgres__products
+    description: inventory tracker 
+
+  - name: stg_postgres__promos
+    description: information related to active and inactive promos
+  
+  - name: stg_postgres__users 
+    description: information related to account information of users on the platform 
