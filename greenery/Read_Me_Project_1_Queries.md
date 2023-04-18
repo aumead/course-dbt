@@ -1,5 +1,3 @@
-Answers / Queries to Short
-
 ### Question 1 - How many users do we have?
 
 SQL Query:
