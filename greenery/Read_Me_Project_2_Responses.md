@@ -50,3 +50,12 @@ ANSWER: 79.84%
 - Within from this intermediary model, I created 2 fact tables (daily order revenue by product name & daily volume of orders by product name) and 1 dim table (active product discounts)
 - I created these models to help the product team better understand our most successful products (in terms of quantity and revenue)
 - By aggregating the tables into an intermediary model, I made it easier to arrive at tables that would be most useful for a product manager to use; it is now easier to self serve based off of the int models
+
+## Part 2 - Tests
+### What assumptions are you making about each model? (i.e., why are you adding each test?)
+- I added the following tests to my models
+    - order_total not null
+    - count_of_orders not null
+    - unique order id
+- I'm assuming that an order that is placed has some value (i.e., costs a specific amount) otherwise we may be encountering a data error
+- I'm also assuming that each order id is unique
