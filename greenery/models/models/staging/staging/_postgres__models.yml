@@ -9,6 +9,10 @@ models:
   
   - name: stg_postgres__orders
     description: information about customer orders, inclusive of shipping costs, order totals, delivery service, etc.
+    columns:
+    - name: order_id
+      tests: 
+        - unique
 
   - name: stg_postgres__order_items
     description: order tracker

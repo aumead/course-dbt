@@ -1,0 +1,21 @@
+version: 2
+
+models:
+
+- name: _fct_daily_order_revenue
+  description: daily revenue for a given product
+  columns:
+    - name: order_total
+      tests:
+      - not_null
+
+
+- name: _fct_daily_order_total
+  description: daily count of orders for a given product
+  columns:
+    - name: number_of_orders
+      tests: 
+        - not_null
+
+- name: _dim_product_discount_active
+  description: active promo codes for products

@@ -1,0 +1,5 @@
+version: 2
+
+models:
+- name: int_product_orders__agg
+  description: aggregation of orders, order items, promo and product tables
