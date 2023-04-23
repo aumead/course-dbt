@@ -2,7 +2,6 @@
 ### What is our user repeat rate?
 
 SQL Query:
-
 ```
 SELECT 
 users_with_two_and_above / (users_with_one + users_with_two_and_above)
@@ -20,7 +19,6 @@ FROM dev_db.dbt_ameadinstaworkcom.stg_postgres__orders
 GROUP BY 1
 )
 )
-
 ```
 ANSWER: 79.84%
 
@@ -58,4 +56,24 @@ ANSWER: 79.84%
     - count_of_orders not null
     - unique order id
 - I'm assuming that an order that is placed has some value (i.e., costs a specific amount) otherwise we may be encountering a data error
-- I'm also assuming that each order id is unique
+- I'm also assuming that an order that is placed has to also have some value (i.e., volume of an order is not null) otherwise we may be encountering a data error
+- Lastly, I assume that each order has its own unique identifier
+
+### Did you find any "bad" data as you added and ran tests on your models? How did you go about either cleaning the data in the dbt model or adjusting your assumptions/tests?
+- I did not encounter any "bad" data as I ran tests on my models
+- If I did run into an issue with bad data, though, we'd have to work with the engineering team behind the failed source data to uncover the root issue and then decide what to do moving forward (e.g., if we see an order_total being null, adding string text of "free" for the order)
+
+### Explain how you would ensure these tests are passing regularly and how you would alert stakeholders about bad data getting through.
+Setup freshness tests to ensure that sources are as up to date as expected (work with stakeholders on defining the right amount of time a source is updated).
+
+If bad data continues to get through, there are likely further tests that can be created to mitigate these instances. There would also likely need to be a conversation with the engineering team to identify the root issue of why bad data still flows into our sources.
+
+## Part 3 - Snapshot
+### Which products had their inventory change from week 1 to week 2?
+SQL Query:
+```
+SELECT * 
+FROM dev_db.dbt_ameadinstaworkcom.products_snapshot
+WHERE dbt_valid_to IS NOT NULL
+```
+Answer: Pothos, Philodendron, Monstera, String of pearls
