@@ -1,0 +1,11 @@
+version: 2
+
+models:
+
+- name: _fct_daily_order_revenue
+  description: daily revenue for a given product
+  columns:
+    - name: order_total
+      tests:
+      - dbt_utils.expression_is_true:
+          expression: "order_total >= 0"
